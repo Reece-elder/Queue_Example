@@ -33,6 +33,7 @@ public class Queue_Service {
 		oldTicket.setDescription(ticket.getDescription());
 		oldTicket.setTimestamp(ticket.getTimestamp());
 		oldTicket.setTitle(ticket.getTitle());
+		oldTicket.setStatus(ticket.getStatus());
 		
 		Ticket saved = this.repo.save(oldTicket);
 		return saved;

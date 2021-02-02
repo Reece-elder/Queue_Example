@@ -16,19 +16,21 @@ public class Ticket {
 	private String author;
 	private String description;
 	private String timestamp;
+	private String status;
 	
 	public Ticket() {
 		super();
 	}
 	
 	//constructor
-	public Ticket(Long id, String title, String author, String description, String timestamp) {
+	public Ticket(Long id, String title, String author, String description, String timestamp, String status) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.author = author;
 		this.description = description;
 		this.timestamp = timestamp;
+		this.status = status;
 	}
 
 	public Long getId() {
@@ -69,6 +71,14 @@ public class Ticket {
 
 	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }
