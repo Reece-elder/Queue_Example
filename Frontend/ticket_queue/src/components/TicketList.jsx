@@ -1,9 +1,9 @@
 import React from "react";
-import CardGroup from "react-bootstrap/CardGroup";
+import CardColumns from "react-bootstrap/CardColumns";
 import Ticket from "./Ticket";
 const TicketList = ({ data }) => {
   return (
-    <CardGroup>
+    <CardColumns>
       {data.map((ticket) => (
         <Ticket
           id={ticket.id}
@@ -14,7 +14,7 @@ const TicketList = ({ data }) => {
           author={ticket.author}
         />
       ))}
-    </CardGroup>
+    </CardColumns>
   );
 };
 export default TicketList;
