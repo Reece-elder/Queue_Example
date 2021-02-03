@@ -23,3 +23,15 @@ else
         echo "terraform already exist"
 
 fi
+
+#install curl
+echo "installing Curl"
+sudo apt install curl -y
+sleep 1
+
+#install aws cli 
+cd ~/
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
