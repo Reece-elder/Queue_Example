@@ -37,6 +37,25 @@ module "TestVM" {
   instance               = "t2.medium"
 }
 
+resource "aws_db_subnet_group" "default" {
+  name       = "var.dbsubnet_gpname"
+  subnet_ids = [module.vpc.subnet_a_id, module.vpc.subnet_b_id]
+
+  tags = {
+    Name = "Proj database"
+  }
+}
+
+module "prod_rds" {
+  source                 = "./RDS"
+  dbname                 = "proddb"
+  dbsubnet_gpname        = aws_db_subnet_group.default.name
+  subnet_ids             = [module.vpc.subnet_a_id, module.vpc.subnet_b_id]
+  vpc_security_group_ids = [module.sg_node.sg_id]
+  rds_username           = var.username1
+  rds_password           = var.password1
+}
+
 
 
 
