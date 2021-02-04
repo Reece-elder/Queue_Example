@@ -11,6 +11,26 @@ echo "installing wget"
 sudo apt install unzip -y
 sleep 1
 
+#Install python3
+if ! which python3 > /dev/null; then
+	echo "Installing Pyton3"
+	sleep 1
+	sudo apt install python3 -y
+else
+        echo "python3 already exist"
+
+fi
+
+#Install python3-pip
+if ! which pip3 > /dev/null; then
+        echo "Installing python3-pip"
+        sleep 1
+        sudo apt install python3-pip -y
+else
+        echo "python3-pip already exist"
+
+fi
+
 #Install terraform
 if ! which terraform > /dev/null; then
         echo "Installing terraform"
@@ -39,4 +59,18 @@ if [ ! -f ~/.ssh/id_rsa.pub ]; then
   ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
 else
   echo "Public key already exist"
+fi
+
+#Install ansible
+if ! which ansible > /dev/null; then
+        echo "Installing ansible"
+        sleep 1
+        mkdir -p ~/.local/bin
+	echo 'PATH=$PATH:~/.local/bin' >> ~/.bashrc
+	source ~/.bashrc
+	pip3 install --user ansible
+	ansible --version
+else
+        echo "ansible already exist"
+
 fi

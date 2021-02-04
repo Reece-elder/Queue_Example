@@ -1,0 +1,5 @@
+[testvm]
+//Add testvm IP from terraform output
+ 
+[jenkins]
+//Add jenkinsvm IP from terraform output
