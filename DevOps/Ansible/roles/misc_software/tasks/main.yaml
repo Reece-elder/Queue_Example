@@ -1,0 +1,45 @@
+- name: update apt list
+  apt:
+    update_cache: yes
+  become: true
+
+- name: Installing openjdk-11-jdk
+  apt:
+    name: openjdk-11-jdk
+    state: latest
+
+- name: Installing aswcli
+  apt:
+    name: awscli
+    state: latest
+  become: true
+
+- name: Installing mysql-client-core-5.7
+  apt:
+    name: mysql-client-core-5.7
+    state: latest
+  become: true
+
+- name: Install NGINX
+  apt:
+    name: nginx
+    state: latest
+  become: true
+
+- name: Install maven
+  apt:
+    name: maven
+    state: latest
+  become: true
+
+- name: Install Curl
+  apt: 
+    name: curl
+    state: latest
+  become: true
+
+- name: Install jq
+  apt:
+    name: jq
+    state: latest
+  become: true

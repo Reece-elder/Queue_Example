@@ -1,0 +1,2 @@
+- name: bash script to install docker
+  shell: "curl https://get.docker.com | sudo bash"
