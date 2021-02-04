@@ -1,3 +1,8 @@
-- hosts: all
+- hosts: jenkins
   roles:
   - jenkins
+
+- hosts: testvm
+  roles: 
+  - docker
+  - docker-compose

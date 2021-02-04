@@ -1,0 +1,11 @@
+- name: set docker-compose latest version
+  shell: "version=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r '.tag_name')"
+
+- name: curl correct docker-compose
+  shell: 'sudo curl -L "https://github.com/docker/compose/releases/download/${version}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose'
+
+- name: make file executable
+  shell: "sudo chmod +x /usr/local/bin/docker-compose"
+
+- name: checking docker-compose installed
+  shell: "docker-compose --version"

@@ -1,0 +1,29 @@
+- name: Installing openjdk-11-jdk
+  apt:
+    name: openjdk-11-jdk
+    state: latest
+    update_cache: true
+
+- name: Installing aswcli
+  apt:
+    name: awscli
+    state: latest
+    update_cache: true
+
+- name: Installing mysql-client-core-5.7
+  apt:
+    name: mysql-client-core-5.7
+    state: latest
+    update_cache: true
+
+- name: Install NGINX
+  apt:
+    name: nginx
+    state: latest
+    update_cache: true
+
+- name: Install maven
+  apt:
+    name: maven
+    state: latest
+    update_cache: true
