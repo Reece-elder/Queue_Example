@@ -1,6 +1,6 @@
 resource "aws_security_group" "main_SG" {
-  name        = var.main_SG_name
-  description = var.main_SG_description
+  name        = var.main_sg_name
+  description = var.main_sg_description
   vpc_id      = var.vpc_id
 
   dynamic "ingress" {

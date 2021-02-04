@@ -8,7 +8,7 @@ module "vpc" {
 }
 
 module "sg_node" {
-  web_sg_name   = "sg for vpc"
+  main_sg_name  = "sg for vpc"
   source        = "./SG"
   open_internet = "0.0.0.0/0"
   vpc_id        = module.vpc.vpc_id
@@ -21,20 +21,22 @@ resource "aws_key_pair" "key_pub" {
 }
 
 module "JenkinsVM" {
-  source = "./EC2"
-  name = "jenkins_VM"
-  subnet_id = module.vpc.subnet_a_id
+  source                 = "./EC2"
+  name                   = "jenkins_VM"
+  subnet_id              = module.vpc.subnet_a_id
   vpc_security_group_ids = [module.sg_node.sg_id]
-  key1 = aws_key_pair.key_pub.id
+  key1                   = aws_key_pair.key_pub.id
 }
 
 module "TestVM" {
-    source = "./EC2"
-  name = "test_VM"
-  subnet_id = module.vpc.subnet_a_id
+  source                 = "./EC2"
+  name                   = "test_VM"
+  subnet_id              = module.vpc.subnet_a_id
   vpc_security_group_ids = [module.sg_node.sg_id]
-  key1 = aws_key_pair.key_pub.id
-  instance = "t2.medium"
+  key1                   = aws_key_pair.key_pub.id
+  instance               = "t2.medium"
 }
+
+
 
 
