@@ -1,5 +1,15 @@
 #! /bin/bash
 
+if [ ! -f /home/ubuntu/Queue_Example/DevOps/Terraformterraform.tfvars ]; then
+  chmod +x ~/Secrets/terraform.tfvars
+  cp -rf ~/Secrets/terraform.tfvars /home/ubuntu/Queue_Example/DevOps/Terraform
+  echo "terraform.tfvars file added to Terraform folder"
+else
+  echo "terraform.tfvars already exist"
+fi
+
+sleep 5
+
 cd /home/ubuntu/Queue_Example/DevOps/Terraform
 terraform fmt
 terraform init
