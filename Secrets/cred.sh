@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export password="Your database password"
-export db_username="Your database username"
-export DOCKER_USERNAME="Your dockerhub username"
-export DOCKER_PASSWORD="Your dockerhub password"
+export password="XXXXXXXXX"
+export db_username="XXXXXXXXX"
+export DOCKER_USERNAME="XXXXXXXXX"
+export DOCKER_PASSWORD="XXXXXXXXX" 

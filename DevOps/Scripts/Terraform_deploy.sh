@@ -1,8 +1,8 @@
 #! /bin/bash
 
-if [ ! -f /home/ubuntu/Queue_Example/DevOps/Terraformterraform.tfvars ]; then
-  chmod +x ~/Secrets/terraform.tfvars
-  cp -rf ~/Secrets/terraform.tfvars /home/ubuntu/Queue_Example/DevOps/Terraform
+if [ ! -f /home/ubuntu/Queue_Example/Terraform/terraform.tfvars ]; then
+  chmod +x /home/ubuntu/Queue_Example/Secrets/terraform.tfvars
+  cp -rf /home/ubuntu/Queue_Example/Secrets/terraform.tfvars /home/ubuntu/Queue_Example/DevOps/Terraform
   echo "terraform.tfvars file added to Terraform folder"
 else
   echo "terraform.tfvars already exist"
@@ -27,6 +27,12 @@ export testvm_ip=$(echo ${testvm_ip} | jq -r .)
 
 echo "export terraform ip addresses into vars done"
 
+export db_endpoint="$(terraform output rds_endpoint_prod)"
+export db_endpoint=$(echo ${db_endpoint} | jq -r .)
+export db_endpoint=$(echo ${db_endpoint} | sed 's/:3306//')
+
+echo "export terraform rds endpoints into vars done"
+
 cd ~
 
 sudo -- sh -c -e "echo '${testvm_ip} testvm_ip' >> /etc/hosts";
@@ -35,16 +41,10 @@ sudo -- sh -c -e "echo '${jenkinsvm_ip} jenkinsvm_ip' >> /etc/hosts";
 
 echo "Passing terraform ip outputs to hosts done"
 
-export db_endpoint="$(terraform output rds_endpoint_prod)"
-export db_endpoint=$(echo ${db_endpoint} | jq -r .)
-export db_endpoint=$(echo ${db_endpoint} | sed 's/:3306//')
-
-echo "export terraform rds endpoints into vars done"
-
 # Exporting Secrets data
 cd ~
-chmod +x ~/Secrets/cred.sh
-. ./secrets/cred.sh
+chmod +x /home/ubuntu/Queue_Example/Secrets/cred.sh
+/home/ubuntu/Queue_Example/Secrets/cred.sh
 
 # Creating Credentials file
 cd ~
