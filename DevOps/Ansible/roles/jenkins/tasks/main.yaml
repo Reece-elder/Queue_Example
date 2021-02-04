@@ -1,0 +1,12 @@
+- name: jenkins install
+  script: /home/ubuntu/Queue_Example/DevOps/Scripts/Jenkins_Install.sh
+
+- name: Get init jenkins password
+  shell: cat /home/jenkins/.jenkins/secrets/initialAdminPassword
+  changed_when: false
+  register: result
+  become: yes
+
+- name: Print init jenkins password
+  debug:
+    var: result.stdout

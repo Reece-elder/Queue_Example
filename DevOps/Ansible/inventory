@@ -1,0 +1,5 @@
+[testvm]
+testvm_ip
+ 
+[jenkins]
+jenkinsvm_ip

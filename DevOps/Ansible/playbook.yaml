@@ -1,0 +1,15 @@
+- hosts: all
+  roles:
+  - misc_software
+
+- hosts: jenkins
+  become: true
+  roles:
+  - jenkins
+  - docker
+  - kubernetes
+
+- hosts: testvm
+  roles: 
+  - docker
+  - docker-compose
