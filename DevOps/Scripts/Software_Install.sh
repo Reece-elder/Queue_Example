@@ -11,6 +11,16 @@ echo "installing wget"
 sudo apt install unzip -y
 sleep 1
 
+#Install jq
+if ! which jq > /dev/null; then
+        echo "Installing jq"
+        sleep 1
+        sudo apt install jq -y
+else
+        echo "jq already exist"
+
+fi
+
 #Install python3
 if ! which python3 > /dev/null; then
 	echo "Installing Pyton3"
