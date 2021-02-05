@@ -2,10 +2,10 @@
 
 # Put in secret data below
 
-export password="xxxxxx"
-export db_username="xxxxxx"
-export DOCKER_USERNAME="xxxxxx"
-export DOCKER_PASSWORD="xxxxxx"
+export password="XXXXX"
+export db_username="XXXXX"
+export DOCKER_USERNAME="XXXXX"
+export DOCKER_PASSWORD="XXXXX"
 
 if [ ! -f /home/ubuntu/Queue_Example/Terraform/terraform.tfvars ]; then
   chmod +x /home/ubuntu/Queue_Example/Secrets/terraform.tfvars
