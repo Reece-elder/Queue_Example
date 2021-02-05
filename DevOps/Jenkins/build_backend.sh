@@ -1,7 +1,5 @@
  #! /bin/bash
 
- echo "it works"
-
 /home/ubuntu/databasecredentials.sh
 
 ssh ubuntu@$testvm_ip <<EOF

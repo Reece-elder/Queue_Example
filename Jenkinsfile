@@ -2,15 +2,9 @@ pipeline{
         agent any
 	
         stages{
-            stage('Clone repo'){
-                steps{
-                    sh 'chmod a+x ./DevOps/Jenkins/clone_repo.sh'
-                    sh './DevOps/Jenkins/clone_repo.sh'
-                }
-	        }
-		
             stage('Build backend and push'){
                 steps{
+                    sh 'pwd'
                     sh 'chmod a+x ./DevOps/Jenkins/build_backend.sh'
                     sh './DevOps/Jenkins/build_backend.sh'
                 }
