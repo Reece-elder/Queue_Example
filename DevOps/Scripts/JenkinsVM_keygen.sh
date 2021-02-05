@@ -1,5 +1,8 @@
 #! /bin/bash
 
+scp ~/databasecredentials.sh ubuntu@jenkinsvm_ip:~/
+scp ~/databasecredentials.sh ubuntu@testvm_ip:~/
+
 ssh ubuntu@jenkinsvm_ip <<EOF
 sudo usermod -aG docker jenkins
 sudo su jenkins

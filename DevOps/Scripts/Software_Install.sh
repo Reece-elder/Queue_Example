@@ -59,11 +59,19 @@ echo "installing Curl"
 sudo apt install curl -y
 sleep 1
 
-#install aws cli 
-cd ~/
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+#Install awscli
+if [ ! -d ~/aws ]; then
+        echo "Installing awscli"
+        sleep 1
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+	unzip awscliv2.zip
+	sudo ./aws/install
+	mv ./aws ~/aws
+	rm awscliv2.zip
+else
+        echo "awscli already exist"
+
+fi
 
 if [ ! -f ~/.ssh/id_rsa.pub ]; then
   ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
@@ -75,11 +83,9 @@ fi
 if ! which ansible > /dev/null; then
         echo "Installing ansible"
         sleep 1
-        mkdir -p ~/.local/bin
-	echo 'PATH=$PATH:~/.local/bin' >> ~/.bashrc
-	source ~/.bashrc
-	pip3 install --user ansible
-	ansible --version
+        sudo apt install software-properties-common
+        sudo apt-add-repository --yes --update ppa:ansible/ansible
+        sudo apt install ansible
 else
         echo "ansible already exist"
 
