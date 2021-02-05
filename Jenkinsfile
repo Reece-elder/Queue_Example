@@ -4,8 +4,6 @@ pipeline{
         stages{
             stage('Clone repo'){
                 steps{
-                    sh 'pwd'
-                    sh 'sleep 3'
                     sh 'chmod a+x ./DevOps/Jenkins/clone_repo.sh'
                     sh './DevOps/Jenkins/clone_repo.sh'
                 }
