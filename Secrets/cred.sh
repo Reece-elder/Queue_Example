@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export password="XXXXXXXXX"
-export db_username="XXXXXXXXX"
-export DOCKER_USERNAME="XXXXXXXXX"
-export DOCKER_PASSWORD="XXXXXXXXX" 
+export password="password"
+export db_username="admin"
+export DOCKER_USERNAME="reeceelder"
+export DOCKER_PASSWORD="Candleman23!" 

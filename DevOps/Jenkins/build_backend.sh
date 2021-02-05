@@ -22,6 +22,6 @@ else
 fi
 
 cd ~/Queue_Example/Backend/barclays_example
-mvn clean package | grep 'BUILD SUCCESS'
+mvn clean package
 
 EOF
