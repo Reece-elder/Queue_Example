@@ -1,5 +1,12 @@
 #! /bin/bash
 
+# Put in secret data below
+
+export password="xxxxxx"
+export db_username="xxxxxx"
+export DOCKER_USERNAME="xxxxxx"
+export DOCKER_PASSWORD="xxxxxx"
+
 if [ ! -f /home/ubuntu/Queue_Example/Terraform/terraform.tfvars ]; then
   chmod +x /home/ubuntu/Queue_Example/Secrets/terraform.tfvars
   cp -rf /home/ubuntu/Queue_Example/Secrets/terraform.tfvars /home/ubuntu/Queue_Example/DevOps/Terraform
@@ -41,11 +48,6 @@ sudo -- sh -c -e "echo '${jenkinsvm_ip} jenkinsvm_ip' >> /etc/hosts";
 
 echo "Passing terraform ip outputs to hosts done"
 
-# Exporting Secrets data
-cd ~
-chmod +x /home/ubuntu/Queue_Example/Secrets/cred.sh
-/home/ubuntu/Queue_Example/Secrets/cred.sh
-
 # Creating Credentials file
 cd ~
 touch databasecredentials.sh
@@ -60,3 +62,5 @@ echo "export testvm_ip=${testvm_ip}" >> ~/databasecredentials.sh
 echo "export jenkinsvm_ip=${jenkinsvm_ip}" >> ~/databasecredentials.sh
 echo "export DOCKER_USERNAME=${DOCKER_USERNAME}" >> ~/databasecredentials.sh
 echo "export DOCKER_PASSWORD=${DOCKER_PASSWORD}" >> ~/databasecredentials.sh
+
+
