@@ -10,8 +10,12 @@ echo "database credentials exported"
 
 ssh ubuntu@${testvm_ip} <<EOF
 
+cd ~
+
+. ./databasecredentials.sh
+
 sleep 2
-if [ ! -d /home/ubuntu/Queue_Example ]; then
+if [ ! -d ~/Queue_Example ]; then
    git clone https://github.com/Reece-elder/Queue_Example.git -b Jenkins
 else 
    git pull https://github.com/Reece-elder/Queue_Example.git -b Jenkins
