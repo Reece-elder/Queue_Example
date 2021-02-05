@@ -57,6 +57,6 @@ echo "export db_endpoint=${db_endpoint}" >> ~/databasecredentials.sh
 echo "export db_username=${db_username}" >> ~/databasecredentials.sh
 echo "export password=${password}" >> ~/databasecredentials.sh
 echo "export testvm_ip=${testvm_ip}" >> ~/databasecredentials.sh
-echo "export testvm_ip=${jenkinsvm_ip}" >> ~/databasecredentials.sh
+echo "export jenkinsvm_ip=${jenkinsvm_ip}" >> ~/databasecredentials.sh
 echo "export DOCKER_USERNAME=${DOCKER_USERNAME}" >> ~/databasecredentials.sh
 echo "export DOCKER_PASSWORD=${DOCKER_PASSWORD}" >> ~/databasecredentials.sh
