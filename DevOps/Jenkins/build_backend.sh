@@ -1,6 +1,8 @@
  #! /bin/bash
 
 /home/ubuntu/databasecredentials.sh
+echo "database credentials exported"
+echo ${testvm_ip}
 
 ssh ubuntu@$testvm_ip <<EOF
 echo "I'm Sshed in"
