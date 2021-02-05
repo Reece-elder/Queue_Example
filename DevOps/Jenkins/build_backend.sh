@@ -1,8 +1,10 @@
  #! /bin/bash
 
+ echo "it works"
+
 /home/ubuntu/databasecredentials.sh
 
-ssh ubuntu@${testvm_ip} <<EOF
+ssh ubuntu@$testvm_ip <<EOF
 echo "I'm Sshed in"
 cd ~
 /home/ubuntu/databasecredentials.sh
