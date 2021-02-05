@@ -1,14 +1,12 @@
  #! /bin/bash
-echo "===== Location ====="
-pwd
-echo "===== Location ====="
+
+ cd /home/jenkins/.jenkins/workspace/queue_project
+ 
 sleep 2
-cd /var/lib/jenkins/workspace/queue_project
-if [ ! -d /var/lib/jenkins/workspace/queue_project/Queue_Example ]; then
-   git clone https://github.com/Reece-elder/Queue_Example.git -b Dev
+if [ ! -d /home/jenkins/.jenkins/workspace/queue_project/Queue_Example ]; then
+   git clone https://github.com/Reece-elder/Queue_Example.git -b jenkins
 else 
-   rm -rf Queue_Example
-   git clone https://github.com/Reece-elder/Queue_Example.git -b Dev
+   git pull https://github.com/Reece-elder/Queue_Example.git -b jenkins
 fi
 
 echo "*hacker voice* I'm in."
